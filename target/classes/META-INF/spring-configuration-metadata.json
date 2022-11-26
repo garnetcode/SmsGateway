@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "environment.secret",
+      "type": "com.gateway.sms.security.config.ServerConfig",
+      "sourceType": "com.gateway.sms.security.config.ServerConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "environment.secret.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.gateway.sms.security.config.ServerConfig"
+    }
+  ],
+  "hints": []
+}
