@@ -15,6 +15,10 @@ import javax.validation.Valid;
 public class RegistrationController {
     private AppUserService registrationService;
 
+
+
+
+
     @PostMapping
     public @ResponseBody Response register(@RequestBody @Valid PostUserDto appUser) {
         return registrationService.signUpUser(appUser);

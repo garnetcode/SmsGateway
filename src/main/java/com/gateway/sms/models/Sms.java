@@ -1,5 +1,6 @@
 package com.gateway.sms.models;
 
+import com.gateway.sms.domain.enums.sms.SenderId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 
 @Setter @Getter @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor @Table(name = "Sms")
 public class Sms extends BaseEntity{
 
     @Column(name = "phoneNumber")
@@ -20,10 +21,8 @@ public class Sms extends BaseEntity{
     private String message;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "senderId")
-    private String senderId;
+    private SenderId smsSenderId;
 
-    @Column(name = "sender")
     @ManyToOne(fetch = FetchType.LAZY)
     private AppUser sender;
 

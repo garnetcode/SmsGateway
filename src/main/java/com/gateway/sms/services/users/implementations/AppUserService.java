@@ -1,6 +1,7 @@
 package com.gateway.sms.services.users.implementations;
 
 import com.gateway.sms.domain.dtos.users.GetUserDto;
+import com.gateway.sms.domain.mappers.users.UserMapper;
 import com.gateway.sms.models.AppUser;
 import com.gateway.sms.models.Role;
 import com.gateway.sms.domain.repositories.AppUserRepository;
@@ -8,8 +9,8 @@ import com.gateway.sms.domain.repositories.RoleRepository;
 import com.gateway.sms.domain.dtos.users.PostUserDto;
 import com.gateway.sms.domain.response.Response;
 import com.gateway.sms.services.users.interfaces.UserService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-@Service @RequiredArgsConstructor @Transactional @Slf4j
+@Service @Transactional @Slf4j
 public class AppUserService implements UserService, UserDetailsService {
 
     private final RoleRepository roleRepository;
@@ -33,6 +34,20 @@ public class AppUserService implements UserService, UserDetailsService {
 
     private final Response response;
 
+    private final UserMapper userMapper;
+
+    @Autowired
+    public AppUserService(RoleRepository roleRepository,
+                          AppUserRepository appUserRepository,
+                          BCryptPasswordEncoder bCryptPasswordEncoder,
+                          Response response, UserMapper userMapper) {
+
+        this.roleRepository = roleRepository;
+        this.appUserRepository = appUserRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.response = response;
+        this.userMapper = userMapper;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -62,7 +77,7 @@ public class AppUserService implements UserService, UserDetailsService {
             response.setMessage("Username already exists");
             response.setData(null);
         }else {
-            AppUser newUser = new AppUser(appUser.name(), appUser.username(), appUser.password());
+            AppUser newUser = userMapper.userDtoToUser(appUser);
             String encodedPassword = bCryptPasswordEncoder.encode(appUser.password());
             newUser.setPassword(encodedPassword);
             appUserRepository.save(newUser);
@@ -72,6 +87,7 @@ public class AppUserService implements UserService, UserDetailsService {
             response.setMessage("User Created!");
             response.setData((new GetUserDto(newUser.getId(), appUser.name(), appUser.username())));
         }
+
         return response;
 
     }

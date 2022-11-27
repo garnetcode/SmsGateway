@@ -14,6 +14,7 @@ public class SmsApplication {
         SpringApplication.run(SmsApplication.class, args);
     }
 
+
     @Bean
     CommandLineRunner run(AppUserService userService){
         return args -> {

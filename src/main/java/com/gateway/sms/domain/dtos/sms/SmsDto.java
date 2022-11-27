@@ -1,7 +1,6 @@
 package com.gateway.sms.domain.dtos.sms;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
