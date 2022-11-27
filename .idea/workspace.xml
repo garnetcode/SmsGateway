@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Mapping">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" afterDir="false" />
+    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Send Econet single sms">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -122,7 +119,7 @@
       <workItem from="1669369663986" duration="245000" />
       <workItem from="1669371282835" duration="2634000" />
       <workItem from="1669408383196" duration="49134000" />
-      <workItem from="1669553819485" duration="2792000" />
+      <workItem from="1669553819485" duration="12131000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1669479283623</created>
@@ -138,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669536288338</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Send Econet single sms">
+      <created>1669558333418</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669558333418</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +162,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Mapping" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mapping" />
+    <MESSAGE value="Send Econet single sms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send Econet single sms" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

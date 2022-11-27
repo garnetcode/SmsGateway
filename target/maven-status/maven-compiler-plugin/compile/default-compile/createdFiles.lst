@@ -24,7 +24,8 @@ com/gateway/sms/models/BaseEntity.class
 com/gateway/sms/domain/filters/CustomAuthenticationFilter.class
 com/gateway/sms/domain/repositories/AppUserRepository.class
 com/gateway/sms/services/sms/implementations/SmsServiceImpl.class
-com/gateway/sms/services/users/implementations/AppUserService.class
 com/gateway/sms/domain/repositories/RoleRepository.class
+com/gateway/sms/services/users/implementations/AppUserService.class
+com/gateway/sms/domain/response/sms/SmsResponse.class
 com/gateway/sms/controllers/RegistrationController.class
 com/gateway/sms/services/sms/interfaces/SmsService.class

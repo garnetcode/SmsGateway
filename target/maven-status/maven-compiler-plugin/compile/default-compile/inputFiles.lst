@@ -1,6 +1,7 @@
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/BaseEntity.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/security/PasswordEncoder.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/security/config/ServerConfig.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/services/users/interfaces/UserService.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/controllers/SmsController.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/validators/EmailValidator.java
