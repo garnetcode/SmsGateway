@@ -6,6 +6,7 @@ com/gateway/sms/services/users/interfaces/UserService.class
 com/gateway/sms/security/PasswordEncoder.class
 com/gateway/sms/domain/mappers/sms/SmsMapper.class
 com/gateway/sms/domain/filters/CustomAuthorizationFilter.class
+com/gateway/sms/domain/dtos/sms/TestDto.class
 com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.class
 com/gateway/sms/domain/dtos/users/GetUserDto.class
 com/gateway/sms/domain/dtos/sms/SmsDto.class

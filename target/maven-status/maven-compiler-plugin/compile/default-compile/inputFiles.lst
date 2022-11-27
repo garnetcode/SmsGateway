@@ -18,6 +18,7 @@
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/SmsApplication.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/sms/TestDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/AppUser.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/users/PostUserDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java

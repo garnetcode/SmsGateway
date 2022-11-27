@@ -12,9 +12,15 @@ import org.springframework.stereotype.Component;
 public class ServerConfig {
     @Value("${environment.secret}")
     private String secret;
+
+    @Value("${environment.apiKey}")
+    private String apiKey;
     @Bean
     public String getSecret(){
         return secret;
     }
+
+    @Bean
+    public String getApiKey(){return apiKey;}
 }
 

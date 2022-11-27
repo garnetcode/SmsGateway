@@ -4,34 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/TestDto.java" afterDir="false" />
+    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Mapping">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/SmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/SmsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/SmsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/SmsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/enums/sms/SenderId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/enums/sms/SenderId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Sms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Sms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/SmsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/SmsApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/sms/SmsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/sms/SmsDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/users/GetUserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/users/GetUserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/enums/sms/SenderId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/enums/sms/SenderId.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/mappers/users/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/mappers/users/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" afterDir="false" />
@@ -80,25 +64,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/garnetsharara/BowSpace/sms",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "18b43c6a536a8fe1362f7a3887936be6"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/garnetsharara/BowSpace/sms&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;18b43c6a536a8fe1362f7a3887936be6&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sms" />
@@ -137,7 +121,8 @@
       <workItem from="1669361796744" duration="1950000" />
       <workItem from="1669369663986" duration="245000" />
       <workItem from="1669371282835" duration="2634000" />
-      <workItem from="1669408383196" duration="33841000" />
+      <workItem from="1669408383196" duration="49134000" />
+      <workItem from="1669553819485" duration="2792000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1669479283623</created>
@@ -146,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669479283623</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mapping">
+      <created>1669536288338</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669536288338</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +157,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Mapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mapping" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
