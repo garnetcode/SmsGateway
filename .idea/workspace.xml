@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Company Crud closes #1">
+    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Company Crud close # 1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/CompanyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +122,7 @@
       <workItem from="1669618605504" duration="18343000" />
       <workItem from="1669643539682" duration="990000" />
       <workItem from="1669645059020" duration="2490000" />
-      <workItem from="1669668612411" duration="5848000" />
+      <workItem from="1669668612411" duration="6155000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1669479283623</created>
@@ -142,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669674354578</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Company Crud close # 1">
+      <created>1669674855102</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669674855102</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +181,8 @@
     <MESSAGE value="Mapping" />
     <MESSAGE value="Send Econet single sms" />
     <MESSAGE value="Company Crud closes #1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Company Crud closes #1" />
+    <MESSAGE value="Company Crud close # 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Company Crud close # 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
