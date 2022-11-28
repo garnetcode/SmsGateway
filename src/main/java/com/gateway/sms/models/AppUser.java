@@ -18,6 +18,8 @@ public class AppUser extends BaseEntity {
 
     private String name;
     private String username;
+
+
     private String password;
 
     public AppUser() {

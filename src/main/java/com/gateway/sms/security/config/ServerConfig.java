@@ -15,6 +15,11 @@ public class ServerConfig {
 
     @Value("${environment.apiKey}")
     private String apiKey;
+
+    @Value("${environment.tokenExpiryTime}")
+    private Integer tokenExpiryTime;
+
+
     @Bean
     public String getSecret(){
         return secret;
@@ -22,5 +27,8 @@ public class ServerConfig {
 
     @Bean
     public String getApiKey(){return apiKey;}
+
+    @Bean
+    public Integer getExpiryTime(){return tokenExpiryTime;}
 }
 

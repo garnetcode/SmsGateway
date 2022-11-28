@@ -1,13 +1,17 @@
 package com.gateway.sms.services.users.implementations;
 
+import com.gateway.sms.domain.dtos.users.CompanyDto;
 import com.gateway.sms.domain.dtos.users.GetUserDto;
+import com.gateway.sms.domain.mappers.users.CompanyMapper;
 import com.gateway.sms.domain.mappers.users.UserMapper;
+import com.gateway.sms.domain.repositories.CompanyRepository;
 import com.gateway.sms.models.AppUser;
+import com.gateway.sms.models.Company;
 import com.gateway.sms.models.Role;
 import com.gateway.sms.domain.repositories.AppUserRepository;
 import com.gateway.sms.domain.repositories.RoleRepository;
 import com.gateway.sms.domain.dtos.users.PostUserDto;
-import com.gateway.sms.domain.response.Response;
+import com.gateway.sms.domain.response.ApiResponse;
 import com.gateway.sms.services.users.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 
 @Service @Transactional @Slf4j
@@ -32,21 +37,29 @@ public class AppUserService implements UserService, UserDetailsService {
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    private final Response response;
+    private final ApiResponse response;
 
     private final UserMapper userMapper;
+
+    private final CompanyRepository companyRepository;
+
+    private final CompanyMapper companyMapper;
 
     @Autowired
     public AppUserService(RoleRepository roleRepository,
                           AppUserRepository appUserRepository,
                           BCryptPasswordEncoder bCryptPasswordEncoder,
-                          Response response, UserMapper userMapper) {
+                          ApiResponse response, UserMapper userMapper,
+                          CompanyRepository companyRepository,
+                          CompanyMapper companyMapper) {
 
         this.roleRepository = roleRepository;
         this.appUserRepository = appUserRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.response = response;
         this.userMapper = userMapper;
+        this.companyRepository = companyRepository;
+        this.companyMapper = companyMapper;
     }
 
     @Override
@@ -69,9 +82,9 @@ public class AppUserService implements UserService, UserDetailsService {
     }
 
     @Override
-    public Response signUpUser(PostUserDto appUser) {
-        AppUser user = appUserRepository.findByUsername(appUser.username());
-        if(user != null){
+    public ApiResponse signUpUser(PostUserDto appUser) {
+        Optional<AppUser> user = Optional.ofNullable(appUserRepository.findByUsername(appUser.username()));
+        if(user.isPresent()){
             response.setSuccess(false);
             response.setStatus(HttpStatus.BAD_REQUEST);
             response.setMessage("Username already exists");
@@ -94,10 +107,57 @@ public class AppUserService implements UserService, UserDetailsService {
 
     @Override
     public void addRoleToUser(String username, String roleName){
-        AppUser user = appUserRepository.findByUsername(username);
+        Optional<AppUser> user = Optional.ofNullable(appUserRepository.findByUsername(username));
         Role role = roleRepository.findByName(roleName);
-        user.getRoles().add(role);
+        user.map(appUser ->appUser.getRoles().add(role));
     }
+
+    @Override
+    public ApiResponse createCompany(AppUser appUser, CompanyDto companyDto){
+
+        Optional<Company> company = Optional.ofNullable(companyRepository.findByAdmin(appUser));
+        return company.map(value->{
+            response.setSuccess(false);
+            response.setStatus(HttpStatus.BAD_REQUEST);
+            response.setMessage("You already have a company profile!");
+            response.setData(null);
+            return response;
+        }).orElseGet(()->{
+            companyDto.setAdmin(appUser);
+            companyDto.setIsActive(false);
+            companyDto.setRunningBalance(0.00);
+            companyRepository.save(companyMapper.companyDtoToCompany(companyDto));
+            companyDto.getAdmin().setPassword(null);
+            response.setSuccess(true);
+            response.setStatus(HttpStatus.OK);
+            response.setMessage("Company Created!");
+            response.setData(companyDto);
+            return response;
+        });
+    }
+
+
+    public ApiResponse getCompanyProfile(AppUser admin){
+        Optional<Company> company = Optional.ofNullable(companyRepository.findByAdmin(admin));
+        return company.map(value->{
+            response.setSuccess(true);
+            response.setStatus(HttpStatus.OK);
+            response.setMessage("Success!");
+            CompanyDto companyDto = companyMapper.companyToCompanyDto(value);
+            companyDto.getAdmin().setPassword(null);
+            response.setData(companyDto);
+            return response;
+        }).orElseGet(()->{
+            response.setSuccess(false);
+            response.setStatus(HttpStatus.NOT_FOUND);
+            response.setMessage("No profile found");
+            response.setData(null);
+            return response;
+        });
+
+    }
+
+
 
 
 

@@ -4,15 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Send Econet single sms">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsDetails.java" afterDir="false" />
+    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Company Crud closes #1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/users/CompanyDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/CompanyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_4_2_Final.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/sms/SmsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/sms/SmsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/sms/SmsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/security/config/ServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/interfaces/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/interfaces/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/StandardResponseBodyWrapAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/AppUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/AppUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/RoleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/response/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/AppUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/security/config/ServerConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/interfaces/SmsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/interfaces/SmsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/interfaces/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/interfaces/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" afterDir="false" />
@@ -120,6 +156,10 @@
       <workItem from="1669371282835" duration="2634000" />
       <workItem from="1669408383196" duration="49134000" />
       <workItem from="1669553819485" duration="12131000" />
+      <workItem from="1669618605504" duration="18343000" />
+      <workItem from="1669643539682" duration="990000" />
+      <workItem from="1669645059020" duration="2490000" />
+      <workItem from="1669668612411" duration="5542000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1669479283623</created>
@@ -163,7 +203,8 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Mapping" />
     <MESSAGE value="Send Econet single sms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send Econet single sms" />
+    <MESSAGE value="Company Crud closes #1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Company Crud closes #1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

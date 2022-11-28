@@ -1,12 +1,8 @@
 package com.gateway.sms.models;
 
-
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.Hibernate;
-
 import javax.persistence.Entity;
-import java.util.Objects;
 
 
 @Entity @Getter @Setter

@@ -1,6 +1,6 @@
 package com.gateway.sms.controllers;
 
-import com.gateway.sms.domain.response.Response;
+import com.gateway.sms.domain.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
@@ -27,7 +27,7 @@ public class StandardResponseBodyWrapAdvice implements ResponseBodyAdvice<Object
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        Response resp = (Response) body;
+        ApiResponse resp = (ApiResponse) body;
         response.setStatusCode(resp.getStatus());
         resp.setPath(URI.create(request.getURI().getPath()));
         return body;

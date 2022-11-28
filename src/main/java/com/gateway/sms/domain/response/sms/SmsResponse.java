@@ -1,20 +1,18 @@
 package com.gateway.sms.domain.response.sms;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
-import java.io.Serializable;
+import java.util.List;
 
 @Getter @AllArgsConstructor
 @Setter @NoArgsConstructor
-public class SmsResponse implements Serializable {
-    private Object status;
+public class SmsResponse {
+    private Status status;
     private String statusCode;
     private Integer statusCodeValue;
 
-    @JsonAlias({"sms-response-details"})
-    private SmsDetails details;
+    @JsonAlias(value = {"sms-response-details"})
+    private List<SmsDetails> details;
 
 
 }

@@ -10,10 +10,12 @@ import java.time.LocalDateTime;
 
 @Component @Getter @Setter @ToString
 @NoArgsConstructor @EqualsAndHashCode
-public class Response {
+public class ApiResponse {
     private LocalDateTime timestamp = LocalDateTime.now();
     private String message = "Message";
     private Boolean success;
+
+    @NonNull
     private HttpStatus status;
     private Object data;
     private URI path;

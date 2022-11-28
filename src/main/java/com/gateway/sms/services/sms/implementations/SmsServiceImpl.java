@@ -5,6 +5,8 @@ import com.gateway.sms.domain.response.sms.SmsResponse;
 import com.gateway.sms.security.config.ServerConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
@@ -24,18 +26,20 @@ public class SmsServiceImpl {
 
     }
 
-    public SmsResponse sendSmsJSON(SmsDto smsDto)  {
-        String apiUrl = String.format("https://mobilemessaging.econet.co.zw/client/api/sendmessage?apikey=%s&mobiles=%s&sms=%s&senderid=%s", config.getApiKey(),smsDto.getPhoneNumber(), URLEncoder.encode(smsDto.getMessage(), StandardCharsets.UTF_8), smsDto.getSenderId()) ;
+    public ResponseEntity<SmsResponse> sendSms(SmsDto smsDto)  {
+        String apiUrl = String.format("https://mobilemessaging.econet.co.zw/client/api/sendmessage?apikey=%s&mobiles=%s&sms=%s&senderid=%s",
+                config.getApiKey(),smsDto.getPhoneNumber(),
+                URLEncoder.encode(smsDto.getMessage(),
+                        StandardCharsets.UTF_8),
+                smsDto.getSenderId()) ;
         try{
-            SmsResponse response = restTemplate.getForEntity(apiUrl, SmsResponse.class).getBody();
-//            ObjectMapper mapper = new ObjectMapper();
-//            mapper.readValue(response, SmsResponse.class)
-//            HttpStatus statusCode = response.getStatusCode();
-//            log.info(statusCode + "  "+response.toString());
-//            if(statusCode.equals(HttpStatus.OK)){
-
-//            }
-            assert response != null;
+            ResponseEntity <SmsResponse> response = restTemplate.getForEntity(apiUrl, SmsResponse.class);
+            HttpStatus statusCode = response.getStatusCode();
+            if(statusCode.equals(HttpStatus.OK)){
+                //TO-DO
+                // Implementations
+                log.info("RESPONSE : "+ response.getBody());
+            }
             log.info(response.toString());
             return response;
         }catch (HttpStatusCodeException e){

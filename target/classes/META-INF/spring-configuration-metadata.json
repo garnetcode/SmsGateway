@@ -16,6 +16,11 @@
       "name": "environment.secret.secret",
       "type": "java.lang.String",
       "sourceType": "com.gateway.sms.security.config.ServerConfig"
+    },
+    {
+      "name": "environment.secret.token-expiry-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.gateway.sms.security.config.ServerConfig"
     }
   ],
   "hints": []

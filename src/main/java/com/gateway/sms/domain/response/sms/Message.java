@@ -13,13 +13,13 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message implements Serializable {
+public class Message {
 
     @JsonAlias(value = {"sms-client-id"})
-    private int smsClientId;
+    private String smsClientId;
 
     @JsonAlias(value = {"message-id"})
-    private int messageId;
+    private String messageId;
 
     @JsonAlias(value = {"mobile-no"})
     private String mobileNumber;
