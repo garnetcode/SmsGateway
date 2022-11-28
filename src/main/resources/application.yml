@@ -5,7 +5,7 @@ server:
 
 environment:
   secret: 7d7erchmod+%vk2qm=@p$7fap@@$tqmh7lqo=cdgdf0hw#+#7=GUtfda83767t75pOKR5##R6
-  apiKey: a93bbe99c497fe15
+  apiKey: 
   tokenExpiryTime: 24
 
 spring:
