@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,componentModel = "spring")
 public interface CompanyMapper {
-
     Company companyDtoToCompany(CompanyDto companyDto);
 
     CompanyDto companyToCompanyDto(Company company);
@@ -16,3 +15,5 @@ public interface CompanyMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Company updateCompanyFromCompanyDto(CompanyDto companyDto, @MappingTarget Company company);
 }
+
+
