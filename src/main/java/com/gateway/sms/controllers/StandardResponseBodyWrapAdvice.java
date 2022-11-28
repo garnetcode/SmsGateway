@@ -1,6 +1,7 @@
 package com.gateway.sms.controllers;
 
 import com.gateway.sms.domain.response.ApiResponse;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
@@ -20,13 +21,13 @@ import java.net.URI;
 public class StandardResponseBodyWrapAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
-    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
+    public boolean supports(MethodParameter returnType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
         return (AnnotationUtils.findAnnotation(returnType.getContainingClass(), ResponseBody.class) != null ||
                 returnType.getMethodAnnotation(ResponseBody.class) != null);
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+    public Object beforeBodyWrite(Object body, @NonNull MethodParameter returnType, @NonNull MediaType selectedContentType, @NonNull Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         ApiResponse resp = (ApiResponse) body;
         response.setStatusCode(resp.getStatus());
         resp.setPath(URI.create(request.getURI().getPath()));

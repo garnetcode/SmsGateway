@@ -5,8 +5,6 @@ import com.gateway.sms.models.Company;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,componentModel = "spring")
 public interface CompanyMapper {

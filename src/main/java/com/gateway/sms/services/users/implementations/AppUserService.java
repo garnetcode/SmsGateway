@@ -71,9 +71,7 @@ public class AppUserService implements UserService, UserDetailsService {
             log.info("User found!");
         }
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        user.getRoles().forEach(role -> {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        });
+        user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 
