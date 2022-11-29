@@ -75,7 +75,6 @@ public class SmsServiceImpl implements SmsService {
                 config.getApiKey(),smsDto.getPhoneNumber(),
                 URLEncoder.encode(smsDto.getMessage(),
                         StandardCharsets.UTF_8)) ;
-
         try{
             ResponseEntity <SmsResponse> smsResponse = restTemplate.getForEntity(apiUrl, SmsResponse.class);
             HttpStatus statusCode = smsResponse.getStatusCode();
