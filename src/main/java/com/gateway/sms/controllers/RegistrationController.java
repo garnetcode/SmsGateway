@@ -21,6 +21,7 @@ public class RegistrationController {
 
     private AppUserRepository appUserRepository;
 
+
     @PostMapping
     public @ResponseBody ApiResponse register(@RequestBody @Valid PostUserDto appUser) {
         return registrationService.signUpUser(appUser);

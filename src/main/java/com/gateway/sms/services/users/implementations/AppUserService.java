@@ -2,8 +2,8 @@ package com.gateway.sms.services.users.implementations;
 
 import com.gateway.sms.domain.dtos.users.CompanyDto;
 import com.gateway.sms.domain.dtos.users.GetUserDto;
-import com.gateway.sms.domain.mappers.users.CompanyMapper;
-import com.gateway.sms.domain.mappers.users.UserMapper;
+import com.gateway.sms.services.sms.implementations.mappers.users.CompanyMapper;
+import com.gateway.sms.services.sms.implementations.mappers.users.UserMapper;
 import com.gateway.sms.domain.repositories.CompanyRepository;
 import com.gateway.sms.models.AppUser;
 import com.gateway.sms.models.Company;
@@ -117,7 +117,7 @@ public class AppUserService implements UserService, UserDetailsService {
         return company.map(value->{
             response.setSuccess(false);
             response.setStatus(HttpStatus.BAD_REQUEST);
-            response.setMessage("You already have a company profile!");
+            response.setMessage("You already have a profile!");
             response.setData(null);
             return response;
         }).orElseGet(()->{
@@ -128,7 +128,7 @@ public class AppUserService implements UserService, UserDetailsService {
             companyDto.getAdmin().setPassword(null);
             response.setSuccess(true);
             response.setStatus(HttpStatus.OK);
-            response.setMessage("Company Created!");
+            response.setMessage("Profile Created!");
             response.setData(companyDto);
             return response;
         });

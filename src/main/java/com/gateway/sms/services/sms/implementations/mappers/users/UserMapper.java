@@ -1,4 +1,4 @@
-package com.gateway.sms.domain.mappers.users;
+package com.gateway.sms.services.sms.implementations.mappers.users;
 
 import com.gateway.sms.domain.dtos.users.PostUserDto;
 import com.gateway.sms.models.AppUser;

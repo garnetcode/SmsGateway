@@ -1,4 +1,5 @@
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/repositories/CompanyRepository.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/SmsType.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/response/sms/Message.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/BaseEntity.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/security/PasswordEncoder.java
@@ -16,6 +17,7 @@
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/sms/SmsDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/repositories/RoleRepository.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/users/CompanyDto.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/sms/SmsTypeDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/users/GetUserDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/Role.java
@@ -26,11 +28,13 @@
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/SmsApplication.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/sms/TestDto.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/mappers/sms/SmsTypeMapper.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/AppUser.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/Company.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/dtos/users/PostUserDto.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/security/config/WebSecurityConfig.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/enums/sms/SenderId.java
+/home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/enums/sms/Provider.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/domain/response/ApiResponse.java
 /home/garnetsharara/BowSpace/sms/src/main/java/com/gateway/sms/models/Sms.java
