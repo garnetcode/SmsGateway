@@ -37,7 +37,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-        return  authenticationManager.authenticate(authenticationToken);
+        return  authenticationManager.  authenticate(authenticationToken);
     }
 
     @Override

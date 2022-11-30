@@ -9,6 +9,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.UniqueConstraint;
 import java.util.Objects;
 
 @Setter @Getter
@@ -20,7 +21,7 @@ public class Company extends BaseEntity{
 
     private Boolean isActive;
 
-    @Column(name = "name")
+    @Column(name = "name", unique=true)
     private String companyName;
 
     @Column(name = "balance")

@@ -4,32 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Company Crud Closes #1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/SmsTypeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/enums/sms/Provider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/SmsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/SmsTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/SmsType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/mappers/sms/SmsTypeMapper.java" afterDir="false" />
+    <list default="true" id="e5798fc8-1bc9-41c1-98a9-943393bd739d" name="Changes" comment="Closes #5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/SmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/SmsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/controllers/SmsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/SmsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/dtos/sms/SmsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/enums/sms/SenderId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/enums/sms/SenderId.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/filters/CustomAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/sms/SmsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/mappers/sms/SmsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/mappers/users/CompanyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/mappers/users/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/mappers/users/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Sms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Sms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/AppUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/domain/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/models/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/implementations/SmsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/sms/interfaces/SmsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/implementations/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/interfaces/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gateway/sms/services/users/interfaces/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/SmsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/SmsApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/controllers/SmsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/sms/SmsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/dtos/sms/SmsDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/filters/CustomAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/enums/sms/SenderId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/enums/sms/SenderId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/mappers/users/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/AppUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/AppUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/domain/repositories/RoleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/models/Role.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/implementations/SmsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/interfaces/SmsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/sms/interfaces/SmsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/implementations/AppUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/interfaces/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gateway/sms/services/users/interfaces/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.gateway.sms.SmsApplicationTests.xml" afterDir="false" />
@@ -82,8 +88,10 @@
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -140,7 +148,10 @@
       <workItem from="1669618605504" duration="18343000" />
       <workItem from="1669643539682" duration="990000" />
       <workItem from="1669645059020" duration="2490000" />
-      <workItem from="1669668612411" duration="15118000" />
+      <workItem from="1669668612411" duration="16221000" />
+      <workItem from="1669710481106" duration="11001000" />
+      <workItem from="1669812210392" duration="2153000" />
+      <workItem from="1669816858279" duration="12930000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1669479283623</created>
@@ -191,7 +202,35 @@
       <option name="project" value="LOCAL" />
       <updated>1669675143046</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Close #1">
+      <created>1669683913030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669683913030</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Close #5">
+      <created>1669683956669</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669683956669</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Close #5">
+      <created>1669683971480</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669683971480</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Closes #5">
+      <created>1669684022244</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669684022244</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +255,10 @@
     <MESSAGE value="Company Crud close # 1" />
     <MESSAGE value="Company Crud Close #1" />
     <MESSAGE value="Company Crud Closes #1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Company Crud Closes #1" />
+    <MESSAGE value="Close #1" />
+    <MESSAGE value="Close #5" />
+    <MESSAGE value="Closes #5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Closes #5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -25,7 +25,7 @@ public class SmsController {
     @RequestMapping(path = "/send")
     public @ResponseBody ApiResponse send(@RequestBody @Valid SmsDto smsDto) {
         String admin = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser appUser = appUserRepository.findByUsername(admin);
+        AppUser appUser = appUserRepository.findFirstByUsername(admin);
         return smsService.sendSms(appUser, smsDto);
     }
 }

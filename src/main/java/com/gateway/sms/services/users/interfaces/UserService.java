@@ -12,4 +12,6 @@ public interface UserService {
     void addRoleToUser(String username, String roleName);
 
     ApiResponse createCompany(AppUser admin, CompanyDto companyDto);
+
+    ApiResponse updateCompanyProfile(String companyName, Boolean isActive);
 }

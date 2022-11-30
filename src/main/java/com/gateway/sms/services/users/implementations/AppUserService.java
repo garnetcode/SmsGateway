@@ -64,11 +64,9 @@ public class AppUserService implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser user = appUserRepository.findByUsername(username);
+        AppUser user = appUserRepository.findFirstByUsername(username);
         if(user == null){
             throw  new UsernameNotFoundException("User not found!");
-        }else {
-            log.info("User found!");
         }
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
@@ -81,10 +79,9 @@ public class AppUserService implements UserService, UserDetailsService {
 
     @Override
     public ApiResponse signUpUser(PostUserDto appUser) {
-        Optional<AppUser> user = Optional.ofNullable(appUserRepository.findByUsername(appUser.username()));
+        Optional<AppUser> user = Optional.ofNullable(appUserRepository.findFirstByUsername(appUser.username()));
         if(user.isPresent()){
-            response.setSuccess(false);
-            response.setStatus(HttpStatus.BAD_REQUEST);
+            response.failed();
             response.setMessage("Username already exists");
             response.setData(null);
         }else {
@@ -93,70 +90,71 @@ public class AppUserService implements UserService, UserDetailsService {
             newUser.setPassword(encodedPassword);
             appUserRepository.save(newUser);
             addRoleToUser(newUser.getUsername(), "ROLE_USER");
-            response.setSuccess(true);
+            response.isSuccessful();
             response.setStatus(HttpStatus.CREATED);
-            response.setMessage("User Created!");
             response.setData((new GetUserDto(newUser.getId(), appUser.name(), appUser.username())));
         }
-
         return response;
 
     }
 
     @Override
     public void addRoleToUser(String username, String roleName){
-        Optional<AppUser> user = Optional.ofNullable(appUserRepository.findByUsername(username));
-        Role role = roleRepository.findByName(roleName);
-        user.map(appUser ->appUser.getRoles().add(role));
+        AppUser user = appUserRepository.findFirstByUsername(username);
+        Role role = roleRepository.findFirstByName(roleName);
+        user.getRoles().add(role);
+        appUserRepository.save(user);
     }
 
     @Override
     public ApiResponse createCompany(AppUser appUser, CompanyDto companyDto){
-
         Optional<Company> company = Optional.ofNullable(companyRepository.findByAdmin(appUser));
-        return company.map(value->{
-            response.setSuccess(false);
-            response.setStatus(HttpStatus.BAD_REQUEST);
+        if(company.isPresent()) {
+            response.failed();
             response.setMessage("You already have a profile!");
-            response.setData(null);
-            return response;
-        }).orElseGet(()->{
+
+        }else{
             companyDto.setAdmin(appUser);
             companyDto.setIsActive(false);
             companyDto.setRunningBalance(0.00);
+
             companyRepository.save(companyMapper.companyDtoToCompany(companyDto));
+
             companyDto.getAdmin().setPassword(null);
-            response.setSuccess(true);
-            response.setStatus(HttpStatus.OK);
-            response.setMessage("Profile Created!");
+            response.isSuccessful();
             response.setData(companyDto);
-            return response;
-        });
+        }
+        return response;
     }
 
 
     public ApiResponse getCompanyProfile(AppUser admin){
         Optional<Company> company = Optional.ofNullable(companyRepository.findByAdmin(admin));
         return company.map(value->{
-            response.setSuccess(true);
-            response.setStatus(HttpStatus.OK);
-            response.setMessage("Success!");
             CompanyDto companyDto = companyMapper.companyToCompanyDto(value);
             companyDto.getAdmin().setPassword(null);
+            response.isSuccessful();
             response.setData(companyDto);
             return response;
         }).orElseGet(()->{
-            response.setSuccess(false);
+            response.failed();
             response.setStatus(HttpStatus.NOT_FOUND);
             response.setMessage("No profile found");
-            response.setData(null);
             return response;
         });
 
     }
 
 
-
-
-
+    @Override
+    public ApiResponse updateCompanyProfile(String companyName, Boolean isActive) {
+        Company company = companyRepository.findFirstByCompanyNameEquals(companyName);
+        CompanyDto companyDto = companyMapper.companyToCompanyDto(company);
+        companyDto.setIsActive(isActive);
+        companyMapper.updateCompanyFromCompanyDto(companyDto, company);
+        response.isSuccessful();
+        response.setStatus(HttpStatus.OK);
+        response.setData(companyDto);
+        return response;
+    }
 }

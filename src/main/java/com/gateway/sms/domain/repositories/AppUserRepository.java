@@ -10,5 +10,5 @@ import java.util.UUID;
 @Repository
 @Transactional(readOnly = true)
 public interface AppUserRepository  extends JpaRepository<AppUser, UUID> {
-    AppUser findByUsername(String username);
+    AppUser findFirstByUsername(String username);
 }

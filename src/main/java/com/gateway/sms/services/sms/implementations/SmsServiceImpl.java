@@ -9,11 +9,13 @@ import com.gateway.sms.domain.repositories.SmsTypeRepository;
 import com.gateway.sms.domain.response.ApiResponse;
 import com.gateway.sms.domain.response.sms.SmsResponse;
 import com.gateway.sms.models.AppUser;
+import com.gateway.sms.models.Company;
 import com.gateway.sms.models.Sms;
 import com.gateway.sms.models.SmsType;
 import com.gateway.sms.security.config.ServerConfig;
 import com.gateway.sms.services.sms.implementations.mappers.sms.SmsMapper;
 import com.gateway.sms.services.sms.implementations.mappers.sms.SmsTypeMapper;
+import com.gateway.sms.services.sms.implementations.mappers.users.CompanyMapper;
 import com.gateway.sms.services.sms.interfaces.SmsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -45,6 +47,8 @@ public class SmsServiceImpl implements SmsService {
 
     private final CompanyRepository companyRepository;
 
+    private final CompanyMapper companyMapper;
+
 
 
     public SmsServiceImpl(RestTemplateBuilder restTemplateBuilder,
@@ -54,7 +58,8 @@ public class SmsServiceImpl implements SmsService {
                           SmsMapper smsMapper,
                           SmsTypeMapper smsTypeMapper,
                           ApiResponse response,
-                          CompanyRepository companyRepository) {
+                          CompanyRepository companyRepository,
+                          CompanyMapper companyMapper) {
         this.restTemplate = restTemplateBuilder.build();
         this.config = config;
         this.smsRepository = smsRepository;
@@ -63,41 +68,68 @@ public class SmsServiceImpl implements SmsService {
         this.response = response;
         this.smsMapper = smsMapper;
         this.smsTypeMapper = smsTypeMapper;
-
-
+        this.companyMapper = companyMapper;
     }
 
     public ApiResponse sendSms(AppUser appUser, SmsDto smsDto)  {
-        //TODO - 1. Calculate cost & validate company balance and provider before proceeding
-        //TODO - 2. Catch Exceptions
-        //TODO - 3. Deduct Balance on message sent
+        Company company = companyRepository.findByAdmin(appUser);
+
+        SmsType smsType = smsTypeRepository.findByProvider(smsDto.getProvider());
+        double cost = smsType.getCostPer160Characters() *Math.ceil((double) smsDto.getMessage().length()/160);
+        smsDto.setMessageCost(cost);
+        smsDto.setCompany(company);
+
+        if(!company.getIsActive()){
+            response.failed();
+            response.setMessage("Your Profile Is Inactive. Please Contact Administrator!");
+            response.setStatus(HttpStatus.LOCKED);
+            return response;
+        }
+
+        if(company.getRunningBalance() < cost ){
+            response.failed();
+            response.setMessage("You Have Insufficient Balance!");
+            response.setStatus(HttpStatus.PAYMENT_REQUIRED);
+            return response;
+        }
+
         String apiUrl = String.format("https://mobilemessaging.econet.co.zw/client/api/sendmessage?apikey=%s&mobiles=%s&sms=%s&senderid=IAS",
                 config.getApiKey(),smsDto.getPhoneNumber(),
                 URLEncoder.encode(smsDto.getMessage(),
                         StandardCharsets.UTF_8)) ;
-
         try{
             ResponseEntity <SmsResponse> smsResponse = restTemplate.getForEntity(apiUrl, SmsResponse.class);
+
+            log.info(String.valueOf(smsResponse));
             HttpStatus statusCode = smsResponse.getStatusCode();
+            log.info(String.valueOf(statusCode));
             if(statusCode.equals(HttpStatus.OK)){
-                Optional<SmsType> provider = Optional.ofNullable(smsTypeRepository.findByProvider(Provider.valueOf(smsDto.getProvider())));
+                Optional<SmsType> provider = Optional.ofNullable(smsTypeRepository.findByProvider(Provider.valueOf(smsDto.getProvider().name())));
                 return provider.map(value->{
 
                     //Update message
-                    smsDto.setMessageCost((smsDto.getMessage().length() / 160)*value.getCostPer160Characters());
+                    smsDto.setMessageCost(cost);
                     smsDto.setSent(true);
-                    smsDto.setCompany(companyRepository.findByAdmin(appUser));
+                    smsDto.setCompany(company);
+                    log.info("=========>>> ENTRY");
                     smsDto.setSenderId(value.getSenderId().toString());
                     Sms sms = smsMapper.smsDtoSms(smsDto);
-                    smsRepository.save(sms);
+
+                    company.setRunningBalance(company.getRunningBalance()-cost);
+
+                    companyMapper.updateCompanyFromCompanyDto(companyMapper.companyToCompanyDto(company), company);
 
                     //Deduct Balance
+                    smsDto.setCompany(company);
+
+                    smsRepository.save(sms);
+
 
                     //Constructing ApiResponse
                     response.setSuccess(true);
                     response.setStatus(HttpStatus.OK);
                     response.setMessage("Success");
-                    response.setData(smsMapper.smsToSmsDto(sms));
+                    response.setData(smsDto);
                     return response;
                 }).orElseGet(()->{
                     response.setSuccess(false);
@@ -110,8 +142,10 @@ public class SmsServiceImpl implements SmsService {
             log.info(response.toString());
             return response;
         }catch (HttpStatusCodeException e){
-            log.info(e.getResponseBodyAsString());
-            log.error(e.getMessage());
+            response.failed();
+            response.setMessage("An Error Occurred, Please Contact Administrator");
+            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setData(e.getMessage());
         }
 
         return null;

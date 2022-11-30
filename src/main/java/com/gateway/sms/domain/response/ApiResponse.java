@@ -19,4 +19,18 @@ public class ApiResponse {
     private HttpStatus status;
     private Object data;
     private URI path;
+
+    public void isSuccessful(){
+        this.setSuccess(true);
+        this.setStatus(HttpStatus.OK);
+        this.setMessage("Success");
+        this.setData(null);
+    }
+
+    public void failed(){
+        this.setSuccess(false);
+        this.setStatus(HttpStatus.BAD_REQUEST);
+        this.setMessage("Failed");
+        this.setData(null);
+    }
 }

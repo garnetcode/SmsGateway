@@ -22,6 +22,7 @@ public class RegistrationController {
     private AppUserRepository appUserRepository;
 
 
+
     @PostMapping
     public @ResponseBody ApiResponse register(@RequestBody @Valid PostUserDto appUser) {
         return registrationService.signUpUser(appUser);
@@ -31,7 +32,7 @@ public class RegistrationController {
     @RequestMapping(path = "create/company/")
     public @ResponseBody ApiResponse createCompany(@RequestBody @Valid CompanyDto companyDto){
         String admin = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser appUser = appUserRepository.findByUsername(admin);
+        AppUser appUser = appUserRepository.findFirstByUsername(admin);
         return registrationService.createCompany(appUser, companyDto);
     }
 
@@ -39,7 +40,14 @@ public class RegistrationController {
     @RequestMapping(path = "fetch/company/")
     public @ResponseBody ApiResponse getCompanyProfile(){
         String admin = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser appUser = appUserRepository.findByUsername(admin);
+        AppUser appUser = appUserRepository.findFirstByUsername(admin);
         return registrationService.getCompanyProfile(appUser);
+    }
+
+    @GetMapping
+    @RequestMapping(path = "update/company/")
+    public @ResponseBody ApiResponse updateCompanyProfile(@RequestParam(name = "name") String name, @RequestParam Boolean isActive){
+
+        return registrationService.updateCompanyProfile(name, isActive);
     }
 }

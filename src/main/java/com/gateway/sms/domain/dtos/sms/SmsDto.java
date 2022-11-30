@@ -1,8 +1,11 @@
 package com.gateway.sms.domain.dtos.sms;
 
+import com.gateway.sms.domain.enums.sms.Provider;
 import com.gateway.sms.models.Company;
 import lombok.Data;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +18,8 @@ public class SmsDto {
     private String message;
 
     @NotNull(message = "Provider is required i.e. (ECONET, NETONE or TELECEL)")
-    private String provider;
+    @Enumerated(value = EnumType.STRING)
+    private Provider provider;
 
     private String senderId;
 
