@@ -14,4 +14,6 @@ public interface UserService {
     ApiResponse createCompany(AppUser admin, CompanyDto companyDto);
 
     ApiResponse updateCompanyProfile(String companyName, Boolean isActive);
+
+    ApiResponse updateCompanyBalance(String name, Double amount);
 }

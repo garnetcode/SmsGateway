@@ -21,8 +21,6 @@ public class RegistrationController {
 
     private AppUserRepository appUserRepository;
 
-
-
     @PostMapping
     public @ResponseBody ApiResponse register(@RequestBody @Valid PostUserDto appUser) {
         return registrationService.signUpUser(appUser);
@@ -45,9 +43,14 @@ public class RegistrationController {
     }
 
     @GetMapping
-    @RequestMapping(path = "update/company/")
-    public @ResponseBody ApiResponse updateCompanyProfile(@RequestParam(name = "name") String name, @RequestParam Boolean isActive){
-
+    @RequestMapping(path = "update/status/")
+    public @ResponseBody ApiResponse updateCompanyStatus(@RequestParam(name = "name") String name, @RequestParam Boolean isActive){
         return registrationService.updateCompanyProfile(name, isActive);
+    }
+
+    @GetMapping
+    @RequestMapping(path = "fund/company/")
+    public @ResponseBody ApiResponse updateCompanyProfile(@RequestParam(name = "name") String name, @RequestParam Double amount){
+        return registrationService.updateCompanyBalance(name, amount);
     }
 }

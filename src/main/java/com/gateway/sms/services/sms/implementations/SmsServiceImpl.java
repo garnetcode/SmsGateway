@@ -22,11 +22,11 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service @Slf4j
@@ -93,60 +93,78 @@ public class SmsServiceImpl implements SmsService {
             return response;
         }
 
+        smsDto.setMessageCost(cost);
+        Sms sms = smsMapper.smsDtoSms(smsDto);
+
+        // ================ BEGIN ECONET IMPLEMENTATION =====================//
         String apiUrl = String.format("https://mobilemessaging.econet.co.zw/client/api/sendmessage?apikey=%s&mobiles=%s&sms=%s&senderid=IAS",
                 config.getApiKey(),smsDto.getPhoneNumber(),
                 URLEncoder.encode(smsDto.getMessage(),
-                        StandardCharsets.UTF_8)) ;
+                        StandardCharsets.UTF_8));
         try{
             ResponseEntity <SmsResponse> smsResponse = restTemplate.getForEntity(apiUrl, SmsResponse.class);
-
-            log.info(String.valueOf(smsResponse));
             HttpStatus statusCode = smsResponse.getStatusCode();
-            log.info(String.valueOf(statusCode));
             if(statusCode.equals(HttpStatus.OK)){
                 Optional<SmsType> provider = Optional.ofNullable(smsTypeRepository.findByProvider(Provider.valueOf(smsDto.getProvider().name())));
-                return provider.map(value->{
+                String count = Objects.requireNonNull(smsResponse.getBody()).getDetails().get(0).getSuccessCount();
+                if(Objects.equals(count, "1") ){
+                    return provider.map(value->{
 
-                    //Update message
-                    smsDto.setMessageCost(cost);
-                    smsDto.setSent(true);
-                    smsDto.setCompany(company);
-                    log.info("=========>>> ENTRY");
-                    smsDto.setSenderId(value.getSenderId().toString());
-                    Sms sms = smsMapper.smsDtoSms(smsDto);
+                        //Update message
+                        smsDto.setSent(true);
+                        smsDto.setCompany(company);
+                        smsDto.setSenderId(value.getSenderId().toString());
 
-                    company.setRunningBalance(company.getRunningBalance()-cost);
+                        company.setRunningBalance(company.getRunningBalance()-cost);
 
-                    companyMapper.updateCompanyFromCompanyDto(companyMapper.companyToCompanyDto(company), company);
+                        companyMapper.updateCompanyFromCompanyDto(companyMapper.companyToCompanyDto(company), company);
 
-                    //Deduct Balance
-                    smsDto.setCompany(company);
-
-                    smsRepository.save(sms);
+                        //Deduct Balance
+                        smsDto.setCompany(company);
+                        Sms sentSms = smsMapper.updateSmsFromSmsDto(smsDto, sms);
+                        smsRepository.save(sentSms);
 
 
-                    //Constructing ApiResponse
-                    response.setSuccess(true);
-                    response.setStatus(HttpStatus.OK);
-                    response.setMessage("Success");
-                    response.setData(smsDto);
-                    return response;
-                }).orElseGet(()->{
+                        //Constructing ApiResponse
+                        response.setSuccess(true);
+                        response.setStatus(HttpStatus.OK);
+                        response.setMessage("Success");
+                        response.setData(smsResponse.getBody());
+                        return response;
+                    }).orElseGet(()->{
+                        response.setSuccess(false);
+                        response.setStatus(HttpStatus.BAD_REQUEST);
+                        response.setMessage("Provider does not exist");
+                        response.setData(null);
+                        return response;
+                    });
+                }else {
                     response.setSuccess(false);
-                    response.setStatus(HttpStatus.BAD_REQUEST);
-                    response.setMessage("Provider does not exist");
+                    response.setStatus(HttpStatus.UNPROCESSABLE_ENTITY);
+                    response.setMessage("Could not process request");
                     response.setData(null);
-                    return response;
-                });
+                }
+
+            }else {
+                response.setSuccess(false);
+                response.setStatus(HttpStatus.UNPROCESSABLE_ENTITY);
+                response.setMessage("Could not process request");
+                response.setData(null);
             }
-            log.info(response.toString());
             return response;
-        }catch (HttpStatusCodeException e){
+        }catch (Exception e){
             response.failed();
-            response.setMessage("An Error Occurred, Please Contact Administrator");
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setMessage("Failed To Communicate With Resource. Unexpected Error Occurred, Please Contact Administrator");
+            response.setStatus(HttpStatus.SERVICE_UNAVAILABLE);
             response.setData(e.getMessage());
         }
+        /*
+        ====================END OF ECONET IMPLEMENTATION ======================//
+        ====================BEGIN NETONE IMPLEMENTATION =======================//
+        TODO - NETONE IMPLEMENTATION
+        ====================END OF ECONET IMPLEMENTATION ======================//
+        */
+
 
         return null;
     }

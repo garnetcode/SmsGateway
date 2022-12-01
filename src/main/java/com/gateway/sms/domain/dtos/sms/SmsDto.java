@@ -8,10 +8,13 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Data
 public class SmsDto {
+
     @NotEmpty(message = "Phone number is required!")
+    @Pattern(regexp = "^(\\+?263|0)([789])\\d{8}$")
     private String phoneNumber;
 
     @NotNull(message = "Message is required!")
@@ -19,13 +22,13 @@ public class SmsDto {
 
     @NotNull(message = "Provider is required i.e. (ECONET, NETONE or TELECEL)")
     @Enumerated(value = EnumType.STRING)
-    private Provider provider;
+    private Provider provider = Provider.ECONET;
 
-    private String senderId;
+    private String senderId = "IAS";
 
     private Double messageCost;
 
-    private Boolean sent;
+    private Boolean sent = false;
 
     private Company company;
 }

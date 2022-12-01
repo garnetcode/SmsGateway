@@ -89,7 +89,7 @@ public class AppUserService implements UserService, UserDetailsService {
             String encodedPassword = bCryptPasswordEncoder.encode(appUser.password());
             newUser.setPassword(encodedPassword);
             appUserRepository.save(newUser);
-            addRoleToUser(newUser.getUsername(), "ROLE_USER");
+            addRoleToUser(newUser.getUsername(), "ROLE_ADMIN");
             response.isSuccessful();
             response.setStatus(HttpStatus.CREATED);
             response.setData((new GetUserDto(newUser.getId(), appUser.name(), appUser.username())));
@@ -149,12 +149,37 @@ public class AppUserService implements UserService, UserDetailsService {
     @Override
     public ApiResponse updateCompanyProfile(String companyName, Boolean isActive) {
         Company company = companyRepository.findFirstByCompanyNameEquals(companyName);
-        CompanyDto companyDto = companyMapper.companyToCompanyDto(company);
-        companyDto.setIsActive(isActive);
-        companyMapper.updateCompanyFromCompanyDto(companyDto, company);
-        response.isSuccessful();
-        response.setStatus(HttpStatus.OK);
-        response.setData(companyDto);
+        if(company !=null){
+            CompanyDto companyDto = companyMapper.companyToCompanyDto(company);
+            companyDto.setIsActive(isActive);
+
+            companyMapper.updateCompanyFromCompanyDto(companyDto, company);
+
+            response.isSuccessful();
+            response.setStatus(HttpStatus.OK);
+            response.setData(companyDto);
+        }else {
+            response.failed();
+            response.setStatus(HttpStatus.NOT_FOUND);
+        }
+        return response;
+    }
+
+    @Override
+    public ApiResponse updateCompanyBalance(String companyName, Double amount) {
+        Company company = companyRepository.findFirstByCompanyNameEquals(companyName);
+        if(company !=null){
+            CompanyDto companyDto = companyMapper.companyToCompanyDto(company);
+            companyDto.setRunningBalance(company.getRunningBalance()+amount);
+            companyMapper.updateCompanyFromCompanyDto(companyDto, company);
+            response.isSuccessful();
+            response.setMessage("Successfully funded "+companyName+" with "+amount);
+            response.setStatus(HttpStatus.OK);
+            response.setData(companyDto);
+        }else {
+            response.failed();
+            response.setStatus(HttpStatus.NOT_FOUND);
+        }
         return response;
     }
 }
